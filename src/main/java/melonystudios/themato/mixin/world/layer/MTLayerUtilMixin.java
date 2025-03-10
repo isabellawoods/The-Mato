@@ -1,5 +1,6 @@
 package melonystudios.themato.mixin.world.layer;
 
+import melonystudios.themato.config.MTConfigs;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.area.IArea;
@@ -23,8 +24,8 @@ public abstract class MTLayerUtilMixin {
     }
 
     @Inject(method = "getDefaultLayer(JZII)Lnet/minecraft/world/gen/layer/Layer;", at = @At("HEAD"), cancellable = true)
-    private static void getDefaultLayerB(long seed, boolean old, int biomeSize, int riverSize, CallbackInfoReturnable<Layer> cir) {
-        IAreaFactory<LazyArea> areaFactory = getDefaultLayer(true, biomeSize, 2, context -> new LazyAreaLayerContext(25, seed, context));
-        cir.setReturnValue(new Layer(areaFactory));
+    private static void getDefaultLayerB(long seed, boolean old, int biomeSize, int riverSize, CallbackInfoReturnable<Layer> callback) {
+        IAreaFactory<LazyArea> areaFactory = getDefaultLayer(true, biomeSize, MTConfigs.COMMON_CONFIGS.riverSize.get(), context -> new LazyAreaLayerContext(25, seed, context));
+        callback.setReturnValue(new Layer(areaFactory));
     }
 }

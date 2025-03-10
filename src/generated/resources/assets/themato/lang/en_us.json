@@ -115,6 +115,8 @@
   "configs.themato.ipeForestGeneration.tooltip": "Allow Ipe Forests to generate?",
   "configs.themato.matoFlowersGeneration": "The Mato Flower Generation",
   "configs.themato.matoFlowersGeneration.tooltip": "Allow flowers added by The Mato (roses, cyan roses and paeonias) to generate?",
+  "configs.themato.riverSize": "Overworld River Amount",
+  "configs.themato.riverSize.tooltip": "What the size of rivers in the Overworld should be. This isn't the width, but the amount of rivers that generate.\nLarger value = less rivers.",
   "configs.themato.theWoodsGeneration": "The Woods Generation",
   "configs.themato.theWoodsGeneration.tooltip": "Allow The Woods (biome) to generate?",
   "death.attack.freeze": "%1$s froze to death",

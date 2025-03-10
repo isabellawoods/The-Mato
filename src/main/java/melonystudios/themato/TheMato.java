@@ -18,14 +18,13 @@ import org.apache.logging.log4j.Logger;
 public class TheMato {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "themato";
-
     public final MTCommonProxy proxy;
 
     public TheMato() {
         MinecraftForge.EVENT_BUS.register(this);
         proxy = DistExecutor.safeRunForDist(() -> MTClientProxy::new, () -> MTServerProxy::new);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MTConfigs.COMMON_SPEC, "jtw-mods/themato-common.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MTConfigs.CAVES_AND_CLIFFS_SPEC, "jtw-mods/themato-cavesandcliffs.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MTConfigs.COMMON_SPEC, "melonystudios/themato-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MTConfigs.CAVES_AND_CLIFFS_SPEC, "melonystudios/themato-cavesandcliffs.toml");
         ForgeMod.enableMilkFluid();
         MTConfigs.init();
         MTUtils.init();

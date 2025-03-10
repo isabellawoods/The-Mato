@@ -159,6 +159,8 @@ public class MTEnglishLanguageProvider extends LanguageProvider {
         add("configs.themato.theWoodsGeneration.tooltip", "Allow The Woods (biome) to generate?");
         add("configs.themato.matoFlowersGeneration", "The Mato Flower Generation");
         add("configs.themato.matoFlowersGeneration.tooltip", "Allow flowers added by The Mato (roses, cyan roses and paeonias) to generate?");
+        add("configs.themato.riverSize", "Overworld River Amount");
+        add("configs.themato.riverSize.tooltip", "What the size of rivers in the Overworld should be. This isn't the width, but the amount of rivers that generate.\nLarger value = less rivers.");
 
         add("tooltip.themato.dyed_water_color", "Color: %s");
 
