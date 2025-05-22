@@ -34,7 +34,7 @@ import java.util.function.Supplier;
 public class MTFeatures {
     // Configs
     public static final LiquidsConfig FROZEN_LAVA_SPRING_CONFIG = new LiquidsConfig(Fluids.LAVA.defaultFluidState(), true, 4, 1, ImmutableSet.of(Blocks.SNOW_BLOCK, Blocks.PACKED_ICE));
-    public static final RuleTest POWDER_SNOW_REPLACEABLES = new TagMatchRuleTest(MTTags.Blocks.POWDER_SNOW_REPLACEABLES);
+    public static final RuleTest POWDER_SNOW_REPLACEABLES = new TagMatchRuleTest(MTTags.Blocks.POWDER_SNOW_CAN_REPLACE);
 
     public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> PINK_IPE_TREE = register("pink_ipe_tree",
             Feature.TREE.configured(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(MTBlocks.PINK_IPE_LOG.get().defaultBlockState()),

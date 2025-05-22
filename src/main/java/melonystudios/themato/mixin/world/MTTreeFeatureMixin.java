@@ -14,7 +14,7 @@ import static net.minecraft.world.gen.feature.Feature.isDirt;
 @Mixin(TreeFeature.class)
 public class MTTreeFeatureMixin {
     @Inject(method = "isGrassOrDirtOrFarmland", at = @At("HEAD"), cancellable = true)
-    private static void isGrassOrDirtOrFarmland(IWorldGenerationBaseReader reader, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(reader.isStateAtPosition(pos, (state) -> isDirt(state.getBlock()) || state.is(MTTags.Blocks.SNOWY_TREES_SPAWNABLE_ON)));
+    private static void isGrassOrDirtOrFarmland(IWorldGenerationBaseReader reader, BlockPos pos, CallbackInfoReturnable<Boolean> callback) {
+        callback.setReturnValue(reader.isStateAtPosition(pos, state -> isDirt(state.getBlock()) || state.is(MTTags.Blocks.SNOWY_TREES_SPAWNABLE_ON)));
     }
 }

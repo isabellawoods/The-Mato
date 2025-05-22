@@ -1,9 +1,6 @@
 package melonystudios.themato.mixin.block;
 
-import net.minecraft.block.CauldronBlock;
-import org.spongepowered.asm.mixin.Mixin;
-
-@Mixin(CauldronBlock.class)
+// @Mixin(CauldronBlock.class)
 public class MTCauldronBlockMixin {
     /*@Unique
     private final Map<Item, CauldronInteraction> interactionMap;

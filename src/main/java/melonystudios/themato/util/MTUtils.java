@@ -20,6 +20,8 @@ import java.util.function.Predicate;
 public class MTUtils {
     public static final GameRules.RuleKey<GameRules.BooleanValue> FREEZE_DAMAGE = GameRules.register("freezeDamage", GameRules.Category.PLAYER, GameRules.BooleanValue.create(true));
 
+    public static void init() {}
+
     public static void setItemInHand(PlayerEntity player, Hand hand, ItemStack stack) {
         player.inventory.items.set(hand == Hand.OFF_HAND ? 0 : player.inventory.selected, stack);
     }
@@ -32,7 +34,7 @@ public class MTUtils {
         return new ResourceLocation("backmath", name);
     }
 
-    public static ResourceLocation variants(String name) {
+    public static ResourceLocation revaried(String name) {
         return new ResourceLocation("variants", name);
     }
 
@@ -42,9 +44,7 @@ public class MTUtils {
 
     public static boolean hasAnyMatching(Iterable<ItemStack> armorSlots, Predicate<ItemStack> stack) {
         for (ItemStack invStack : armorSlots) {
-            if (stack.test(invStack)) {
-                return true;
-            }
+            if (stack.test(invStack)) return true;
         }
         return false;
     }
@@ -71,5 +71,32 @@ public class MTUtils {
         return builder.build();
     }
 
-    public static void init() {}
+    public static ItemStack createFilledResult(ItemStack filledStack, PlayerEntity player, ItemStack emptyStack, boolean preventDuplicates) {
+        boolean flag = player.abilities.instabuild;
+        if (preventDuplicates && flag) {
+            if (!player.inventory.contains(emptyStack)) {
+                player.inventory.add(emptyStack);
+            }
+
+            return filledStack;
+        } else {
+            if (!flag) {
+                filledStack.shrink(1);
+            }
+
+            if (filledStack.isEmpty()) {
+                return emptyStack;
+            } else {
+                if (!player.inventory.add(emptyStack)) {
+                    player.drop(emptyStack, false);
+                }
+
+                return filledStack;
+            }
+        }
+    }
+
+    public static ItemStack createFilledResult(ItemStack filledStack, PlayerEntity player, ItemStack emptyStack) {
+        return createFilledResult(filledStack, player, emptyStack, true);
+    }
 }

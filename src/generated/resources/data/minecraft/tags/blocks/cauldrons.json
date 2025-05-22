@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cauldron",
+    "themato:cauldron",
+    "themato:water_cauldron",
+    "themato:lava_cauldron",
+    "themato:milk_cauldron",
+    "themato:powder_snow_cauldron"
+  ]
+}

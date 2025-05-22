@@ -7,7 +7,6 @@
   "mixins": [
     "block.MTBlockMixin",
     "block.MTCactusBlockMixin",
-    "block.MTCauldronBlockMixin",
     "blockentity.MTAbstractFurnaceTileEntityMixin",
     "world.MTDefaultBiomeFeaturesMixin",
     "world.MTTreeFeatureMixin",

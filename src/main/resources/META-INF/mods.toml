@@ -14,26 +14,26 @@ license="MIT License"
 issueTrackerURL="https://github.com/isabellawoods/The-Mato/issues" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
-# The modid of the mod
-modId="themato" #mandatory
-# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-# ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
-# see the associated build.gradle script for how to populate this completely automatically during a build
-version="1.16.5-v0.3.4" #mandatory
- # A display name for the mod
-displayName="The Mato" #mandatory
-# A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-# A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="https://github.com/isabellawoods/The-Mato" #optional
-# A file name (in the root of the mod JAR) containing a logo for display
-logoFile="themato.png" #optional
-# A text field displayed in the mod UI
-credits="Gabriel" #optional
-# A text field displayed in the mod UI
-authors="isabellawoods" #optional
-# The description text for the mod (multi line!) (#mandatory)
-description='''The Mato is a mod that adds various new biomes and blocks based either on features from Brazil or old Minecraft features. Credits to Gabriel for ideas on items for each region.'''
+    # The modid of the mod
+    modId="themato" #mandatory
+    # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
+    # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
+    # see the associated build.gradle script for how to populate this completely automatically during a build
+    version="1.16.5-v0.3.5" #mandatory
+    # A display name for the mod
+    displayName="The Mato" #mandatory
+    # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
+    #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+    # A URL for the "homepage" for this mod, displayed in the mod UI
+    displayURL="https://github.com/isabellawoods/The-Mato" #optional
+    # A file name (in the root of the mod JAR) containing a logo for display
+    logoFile="themato.png" #optional
+    # A text field displayed in the mod UI
+    credits="My friend Gabriel" #optional
+    # A text field displayed in the mod UI
+    authors="isabellawoods" #optional
+    # The description text for the mod (multi line!) (#mandatory)
+    description='''The Mato is a mod that adds various new biomes and blocks based either on features from Brazil or old Minecraft features. Credits to Gabriel for ideas on items for each region.'''
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.themato]] #optional
@@ -52,7 +52,7 @@ description='''The Mato is a mod that adds various new biomes and blocks based e
 [[dependencies.themato]]
     modId="minecraft"
     mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
+    # This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.16.5,1.17)"
     ordering="NONE"
     side="BOTH"

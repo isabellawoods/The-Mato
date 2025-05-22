@@ -26,7 +26,7 @@ public class MTEntityTypeTagsProvider extends EntityTypeTagsProvider {
         // The Mato's Tags
         this.tag(MTTags.Entities.FREEZE_IMMUNE_ENTITY_TYPES).add(EntityType.STRAY, EntityType.POLAR_BEAR, EntityType.SNOW_GOLEM, EntityType.WITHER);
         this.tag(MTTags.Entities.POWDER_SNOW_WALKABLE_MOBS).add(EntityType.FOX, EntityType.RABBIT, EntityType.SHULKER, EntityType.VEX, EntityType.SILVERFISH, EntityType.ENDERMITE);
-        this.tag(MTTags.Entities.EXTRA_DAMAGE_FROM_FREEZING).add(EntityType.STRIDER, EntityType.MAGMA_CUBE, EntityType.BLAZE);
+        this.tag(MTTags.Entities.FREEZE_HURTS_EXTRA_TYPES).add(EntityType.STRIDER, EntityType.MAGMA_CUBE, EntityType.BLAZE);
 
         // Melony Tags
         this.tag(MTTags.Entities.CAN_SPAWN_ON_LEAVES).add(EntityType.OCELOT, EntityType.PARROT);

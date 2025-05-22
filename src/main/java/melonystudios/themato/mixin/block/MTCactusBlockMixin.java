@@ -22,9 +22,9 @@ public class MTCactusBlockMixin extends Block {
         super(properties);
     }
 
-    @Nullable
-    @Override
     @Unique
+    @Override
+    @Nullable
     public BlockState getToolModifiedState(BlockState state, World world, BlockPos pos, PlayerEntity player, ItemStack stack, ToolType toolType) {
         if (player.getMainHandItem().getItem() instanceof AxeItem || player.getOffhandItem().getItem() instanceof AxeItem) {
             if (state.is(Blocks.CACTUS)) return MTBlocks.STRIPPED_CACTUS.get().defaultBlockState();

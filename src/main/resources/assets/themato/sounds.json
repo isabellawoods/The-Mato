@@ -65,6 +65,11 @@
         "stream": true,
         "volume": 0.4,
         "weight": 2
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/lilypad",
+        "stream": true,
+        "volume": 0.4
       }
     ]
   },
@@ -105,6 +110,12 @@
       {
         "name": "music/game/nuance1",
         "stream": true
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/lilypad",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
       },
       {
         "name": "music/game/nuance2",
@@ -279,6 +290,12 @@
   },
   "music.overworld.forest": {
     "sounds": [
+      {
+        "name": "themato:music/game/drop_2_2025/broken_clocks",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
       {
         "name": "music/game/piano1",
         "stream": true

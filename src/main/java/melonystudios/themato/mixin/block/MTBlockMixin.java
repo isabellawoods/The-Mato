@@ -1,10 +1,9 @@
 package melonystudios.themato.mixin.block;
 
+import melonystudios.themato.sound.MTSoundTypes;
 import melonystudios.themato.util.MTTags;
 import it.unimi.dsi.fastutil.objects.Object2ByteLinkedOpenHashMap;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.*;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.IBooleanFunction;
@@ -18,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-// Copied from Caves & Cliffs Backports (by blackgear27)
 @Mixin(Block.class)
 public abstract class MTBlockMixin extends AbstractBlock {
     @Shadow
@@ -29,36 +27,47 @@ public abstract class MTBlockMixin extends AbstractBlock {
         super(properties);
     }
 
+    /// Copied from [Vanilla Backport](https://modrinth.com/mod/vanillabackport) (formerly Caves & Cliffs Backport).
+    /// @author blackgear27
     @Inject(method = "shouldRenderFace", at = @At("HEAD"), cancellable = true)
-    private static void shouldSideBeRendered(BlockState state, IBlockReader readerIn, BlockPos pos, Direction side, CallbackInfoReturnable<Boolean> cir) {
-        if (readerIn.getBlockState(pos).getBlock().is(MTTags.Blocks.USES_POST_CAC_CULLING)) {
+    private static void shouldRenderFace(BlockState state, IBlockReader world, BlockPos pos, Direction side, CallbackInfoReturnable<Boolean> callback) {
+        if (world.getBlockState(pos).getBlock().is(MTTags.Blocks.USES_UPDATED_CULLING)) {
             BlockPos adjacentPos = pos.relative(side);
-            BlockState adjacentState = readerIn.getBlockState(adjacentPos);
+            BlockState adjacentState = world.getBlockState(adjacentPos);
             if (state.skipRendering(adjacentState, side)) {
-                cir.setReturnValue(false);
+                callback.setReturnValue(false);
             } else if (adjacentState.canOcclude()) {
                 Block.RenderSideCacheKey cache = new Block.RenderSideCacheKey(state, adjacentState, side);
                 Object2ByteLinkedOpenHashMap<Block.RenderSideCacheKey> map = OCCLUSION_CACHE.get();
                 byte id = map.getAndMoveToFirst(cache);
 
                 if (id != 127) {
-                    cir.setReturnValue(id != 0);
+                    callback.setReturnValue(id != 0);
                 } else {
-                    VoxelShape occlusionShape = state.getFaceOcclusionShape(readerIn, pos, side);
+                    VoxelShape occlusionShape = state.getFaceOcclusionShape(world, pos, side);
                     if (occlusionShape.isEmpty()) {
-                        cir.setReturnValue(true);
+                        callback.setReturnValue(true);
                     } else {
-                        VoxelShape adjacentOcclusionShape = adjacentState.getFaceOcclusionShape(readerIn, adjacentPos, side.getOpposite());
+                        VoxelShape adjacentOcclusionShape = adjacentState.getFaceOcclusionShape(world, adjacentPos, side.getOpposite());
                         boolean canCompare = VoxelShapes.joinIsNotEmpty(occlusionShape, adjacentOcclusionShape, IBooleanFunction.ONLY_FIRST);
                         if (map.size() == 2048) map.removeLastByte();
 
                         map.putAndMoveToFirst(cache, (byte) (canCompare ? 1 : 0));
-                        cir.setReturnValue(canCompare);
+                        callback.setReturnValue(canCompare);
                     }
                 }
             } else {
-                cir.setReturnValue(true);
+                callback.setReturnValue(true);
             }
+        }
+    }
+
+    @Inject(method = "getSoundType", at = @At("HEAD"), cancellable = true)
+    public void getSoundType(BlockState state, CallbackInfoReturnable<SoundType> callback) {
+        if (state.is(MTTags.Blocks.USES_CALCITE_SOUNDS)) {
+            callback.setReturnValue(MTSoundTypes.CALCITE);
+        } else if (state.is(MTTags.Blocks.USES_POWDER_SNOW_SOUNDS)) {
+            callback.setReturnValue(MTSoundTypes.POWDER_SNOW);
         }
     }
 }

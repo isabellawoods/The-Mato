@@ -25,7 +25,7 @@ public abstract class MTLayerUtilMixin {
 
     @Inject(method = "getDefaultLayer(JZII)Lnet/minecraft/world/gen/layer/Layer;", at = @At("HEAD"), cancellable = true)
     private static void getDefaultLayerB(long seed, boolean old, int biomeSize, int riverSize, CallbackInfoReturnable<Layer> callback) {
-        IAreaFactory<LazyArea> areaFactory = getDefaultLayer(true, biomeSize, MTConfigs.COMMON_CONFIGS.riverSize.get(), context -> new LazyAreaLayerContext(25, seed, context));
-        callback.setReturnValue(new Layer(areaFactory));
+        IAreaFactory<LazyArea> areaFactory = getDefaultLayer(true, biomeSize, MTConfigs.COMMON_CONFIGS.overworldRiverAmount.get(), context -> new LazyAreaLayerContext(25, seed, context));
+        if (areaFactory != null) callback.setReturnValue(new Layer(areaFactory));
     }
 }

@@ -23,7 +23,7 @@ public abstract class MTAbstractFurnaceTileEntityMixin {
     protected NonNullList<ItemStack> items;
 
     @Inject(method = "burn", at = @At("HEAD"))
-    private void burn(IRecipe<?> recipe, CallbackInfo ci) {
+    private void burn(IRecipe<?> recipe, CallbackInfo callback) {
         if (recipe != null && canBurn(recipe)) {
             ItemStack result = this.items.get(0);
 

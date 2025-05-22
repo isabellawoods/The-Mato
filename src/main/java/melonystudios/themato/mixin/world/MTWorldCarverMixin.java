@@ -18,7 +18,7 @@ public class MTWorldCarverMixin {
     protected Set<Block> replaceableBlocks;
 
     @Inject(method = "canReplaceBlock(Lnet/minecraft/block/BlockState;)Z", at = @At("HEAD"), cancellable = true)
-    protected void canReplaceBlock(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(state.is(MTTags.Blocks.OVERWORLD_CARVER_REPLACEABLES) || replaceableBlocks.contains(state.getBlock()));
+    protected void canReplaceBlock(BlockState state, CallbackInfoReturnable<Boolean> callback) {
+        callback.setReturnValue(state.is(MTTags.Blocks.OVERWORLD_CARVER_REPLACEABLES) || this.replaceableBlocks.contains(state.getBlock()));
     }
 }

@@ -3,7 +3,6 @@ package melonystudios.themato.block.custom;
 import melonystudios.themato.effect.MTEffects;
 import melonystudios.themato.item.MTItems;
 import melonystudios.themato.sound.MTSounds;
-import melonystudios.themato.util.CavesAndCliffsUtils;
 import melonystudios.themato.util.MTTags;
 import melonystudios.themato.util.MTUtils;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -65,7 +64,7 @@ public class PowderSnowBlock extends Block {
         if (handStack.getItem() == Items.BUCKET) {
             player.playSound(MTSounds.POWDER_SNOW_BUCKET_FILL.get(), 1, 1);
             ItemStack powderSnowBucket = new ItemStack(MTItems.POWDER_SNOW_BUCKET.get());
-            ItemStack exchangedStack = CavesAndCliffsUtils.createFilledResult(handStack, player, powderSnowBucket, true);
+            ItemStack exchangedStack = MTUtils.createFilledResult(handStack, player, powderSnowBucket, true);
             MTUtils.setItemInHand(player, hand, exchangedStack);
             if (!world.isClientSide) CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity) player, powderSnowBucket);
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
@@ -89,7 +88,7 @@ public class PowderSnowBlock extends Block {
             if (entity instanceof LivingEntity && !world.isClientSide) {
                 LivingEntity livEntity = (LivingEntity) entity;
                 if (!livEntity.getType().is(MTTags.Entities.FREEZE_IMMUNE_ENTITY_TYPES) && !livEntity.hasEffect(MTEffects.FREEZING.get()) && world.getGameRules().getBoolean(MTUtils.FREEZE_DAMAGE)) {
-                    if (MTUtils.hasAnyMatching(livEntity.getArmorSlots(), stack -> !stack.getItem().is(MTTags.Items.PROTECTS_AGAINST_POWDER_SNOW))) {
+                    if (MTUtils.hasAnyMatching(livEntity.getArmorSlots(), stack -> !stack.getItem().is(MTTags.Items.FREEZE_IMMUNE_WEARABLES))) {
                         livEntity.addEffect(new EffectInstance(MTEffects.FREEZING.get(), 200, 0, false, false, false));
                     }
                 }

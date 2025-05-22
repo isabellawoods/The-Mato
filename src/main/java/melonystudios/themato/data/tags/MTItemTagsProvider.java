@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import static melonystudios.themato.util.MTUtils.backMath;
-import static melonystudios.themato.util.MTUtils.variants;
+import static melonystudios.themato.util.MTUtils.revaried;
 
 public class MTItemTagsProvider extends ItemTagsProvider {
     public MTItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider, @Nullable ExistingFileHelper fileHelper) {
@@ -39,8 +39,8 @@ public class MTItemTagsProvider extends ItemTagsProvider {
         this.tag(MTTags.Items.CACTI).add(Items.CACTUS, MTItems.STRIPPED_CACTUS.get());
 
         this.tag(MTTags.Items.POWDER_SNOW_PROOF_SHOES).add(Items.LEATHER_BOOTS);
-        this.tag(MTTags.Items.PROTECTS_AGAINST_POWDER_SNOW).add(Items.LEATHER_HELMET, Items.LEATHER_CHESTPLATE, Items.LEATHER_LEGGINGS, Items.LEATHER_BOOTS, Items.LEATHER_HORSE_ARMOR).addOptional(variants("rabbit_hide_sweatchest"))
-                .addOptional(variants("phantom_membrane_sweatchest")).addOptional(variants("wool_sweatchest"));
+        this.tag(MTTags.Items.FREEZE_IMMUNE_WEARABLES).add(Items.LEATHER_HELMET, Items.LEATHER_CHESTPLATE, Items.LEATHER_LEGGINGS, Items.LEATHER_BOOTS, Items.LEATHER_HORSE_ARMOR).addOptional(revaried("rabbit_hide_tunic"))
+                .addOptional(revaried("phantom_membrane_tunic")).addOptional(revaried("wool_sweater"));
 
         // Forge Tags
         this.tag(Tags.Items.FENCE_GATES_WOODEN).add(MTItems.PINK_IPE_FENCE_GATE.get(), MTItems.PURPLE_IPE_FENCE_GATE.get(), MTItems.RED_IPE_FENCE_GATE.get(), MTItems.YELLOW_IPE_FENCE_GATE.get(), MTItems.JUNIUM_FENCE_GATE.get(), MTItems.CACTUS_FENCE_GATE.get());

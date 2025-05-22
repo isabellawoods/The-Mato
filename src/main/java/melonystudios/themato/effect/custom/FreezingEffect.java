@@ -35,7 +35,7 @@ public class FreezingEffect extends Effect {
                 stray.setHealth(skeleton.getMaxHealth());
             } else {
                 if (world.getGameRules().getBoolean(MTUtils.FREEZE_DAMAGE)) {
-                    livEntity.hurt(MTDamageSources.FREEZING, livEntity.getType().is(MTTags.Entities.EXTRA_DAMAGE_FROM_FREEZING) ? 5 : 1);
+                    livEntity.hurt(MTDamageSources.FREEZING, livEntity.getType().is(MTTags.Entities.FREEZE_HURTS_EXTRA_TYPES) ? 5 : 1);
                 }
             }
         }

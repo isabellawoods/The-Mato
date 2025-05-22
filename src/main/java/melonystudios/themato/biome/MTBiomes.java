@@ -1,6 +1,7 @@
 package melonystudios.themato.biome;
 
 import melonystudios.themato.TheMato;
+import melonystudios.themato.config.MTConfigs;
 import melonystudios.themato.sound.MTSounds;
 import melonystudios.themato.world.surface.MTSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
@@ -35,7 +36,7 @@ public class MTBiomes {
         BiomeGenerationSettings.Builder settings = new BiomeGenerationSettings.Builder().surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
 
         addIpeTrees(settings);
-        // addWaterLakes(settings);
+        if (!MTConfigs.COMMON_CONFIGS.removeWaterLakes.get()) addWaterLakes(settings);
 
         addDefaultUndergroundVariety(settings);
         addJungleGrass(settings);
@@ -51,9 +52,9 @@ public class MTBiomes {
         commonSpawns(spawns);
         farmAnimals(spawns);
 
-        return new Biome.Builder().precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F)
-                .downfall(0.8F).specialEffects(new BiomeAmbience.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463)
-                        .skyColor(0x82A8FF).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).grassColorOverride(0x3B9444).build())
+        return new Biome.Builder().precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F).downfall(0.8F).specialEffects(
+                new BiomeAmbience.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(0x82A8FF).ambientMoodSound(
+                        MoodSoundAmbience.LEGACY_CAVE_SETTINGS).backgroundMusic(BackgroundMusicTracks.createGameMusic(MTSounds.FOREST_MUSIC.get())).grassColorOverride(0x3B9444).build())
                 .mobSpawnSettings(spawns.build()).generationSettings(settings.build()).build();
     }
 
@@ -71,16 +72,16 @@ public class MTBiomes {
         addForestFlowers(settings);
         addDefaultMonsterRoom(settings);
         addSurfaceFreezing(settings);
-        // addWaterLakes(settings);
+        if (!MTConfigs.COMMON_CONFIGS.removeWaterLakes.get()) addWaterLakes(settings);
         addDefaultOverworldLandStructures(settings);
         settings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
 
         commonSpawns(spawns);
         farmAnimals(spawns);
 
-        return new Biome.Builder().precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F)
-                .downfall(0.8F).specialEffects(new BiomeAmbience.Builder().waterColor(0x24E2FF).waterFogColor(0x17E5E0).fogColor(12638463)
-                        .skyColor(0x82A8FF).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).grassColorOverride(0x2DB171).build())
+        return new Biome.Builder().precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.7F).downfall(0.8F).specialEffects(
+                new BiomeAmbience.Builder().waterColor(0x24E2FF).waterFogColor(0x17E5E0).fogColor(12638463).skyColor(0x82A8FF).ambientMoodSound(
+                        MoodSoundAmbience.LEGACY_CAVE_SETTINGS).backgroundMusic(BackgroundMusicTracks.createGameMusic(MTSounds.FOREST_MUSIC.get())).grassColorOverride(0x2DB171).build())
                 .mobSpawnSettings(spawns.build()).generationSettings(settings.build()).build();
     }
 

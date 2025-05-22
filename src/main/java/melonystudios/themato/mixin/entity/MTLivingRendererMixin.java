@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LivingRenderer.class)
 public class MTLivingRendererMixin {
     @Inject(method = "isShaking", at = @At("HEAD"), cancellable = true)
-    private void isShaking(LivingEntity livEntity, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(livEntity.hasEffect(MTEffects.FREEZING.get()));
+    private void isShaking(LivingEntity livEntity, CallbackInfoReturnable<Boolean> callback) {
+        callback.setReturnValue(livEntity.hasEffect(MTEffects.FREEZING.get()));
     }
 }

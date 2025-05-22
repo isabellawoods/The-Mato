@@ -16,6 +16,6 @@ public class MTTab extends ItemGroup {
     @Override
     @Nonnull
     public ItemStack makeIcon() {
-        return new ItemStack(MTItems.YELLOW_IPE_PLANKS.get());
+        return new ItemStack(MTItems.YELLOW_IPE_SAPLING.get());
     }
 }

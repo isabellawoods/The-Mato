@@ -2,6 +2,31 @@
   "music.game": {
     "sounds": [
       {
+        "name": "themato:music/game/drop_2_2025/below_and_above",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/broken_clocks",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/fireflies",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/lilypad",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/os_piano",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
         "name": "themato:music/game/tricky_trials/featherfall",
         "stream": true,
         "volume": 0.4
@@ -55,6 +80,31 @@
   },
   "music.menu": {
     "sounds": [
+      {
+        "name": "themato:music/game/drop_2_2025/below_and_above",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/broken_clocks",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/fireflies",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/lilypad",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/drop_2_2025/os_piano",
+        "stream": true,
+        "volume": 0.4
+      },
       {
         "name": "themato:music/game/tricky_trials/deeper",
         "stream": true,

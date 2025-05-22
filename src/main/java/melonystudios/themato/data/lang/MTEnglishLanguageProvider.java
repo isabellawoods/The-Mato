@@ -153,14 +153,16 @@ public class MTEnglishLanguageProvider extends LanguageProvider {
 
         add("gamerule.freezeDamage", "Deal freeze damage");
 
-        add("configs.themato.ipeForestGeneration", "Ipe Forest Generation");
-        add("configs.themato.ipeForestGeneration.tooltip", "Allow Ipe Forests to generate?");
-        add("configs.themato.theWoodsGeneration", "The Woods Generation");
-        add("configs.themato.theWoodsGeneration.tooltip", "Allow The Woods (biome) to generate?");
-        add("configs.themato.matoFlowersGeneration", "The Mato Flower Generation");
-        add("configs.themato.matoFlowersGeneration.tooltip", "Allow flowers added by The Mato (roses, cyan roses and paeonias) to generate?");
-        add("configs.themato.riverSize", "Overworld River Amount");
-        add("configs.themato.riverSize.tooltip", "What the size of rivers in the Overworld should be. This isn't the width, but the amount of rivers that generate.\nLarger value = less rivers.");
+        add("config.themato.ipe_forest_generation", "Ipe Forest Generation");
+        add("config.themato.ipe_forest_generation.tooltip", "Allow Ipe Forests to generate?");
+        add("config.themato.the_woods_generation", "The Woods Generation");
+        add("config.themato.the_woods_generation.tooltip", "Allow The Woods (biome) to generate?");
+        add("config.themato.the_mato_flowers_generation", "The Mato Flower Generation");
+        add("config.themato.the_mato_flowers_generation.tooltip", "Allow flowers added by The Mato (roses, cyan roses and paeonias) to generate?");
+        add("config.themato.remove_water_lakes", "Remove Water Lakes");
+        add("config.themato.remove_water_lakes.tooltip", "Removes water lakes from natural world generation.\nBiomes that add it separately will still generate them.");
+        add("config.themato.overworld_river_amount", "Overworld River Amount");
+        add("config.themato.overworld_river_amount.tooltip", "What the size of rivers in the Overworld should be. This isn't the width, but the amount of rivers that generate.\nLarger value = less rivers.");
 
         add("tooltip.themato.dyed_water_color", "Color: %s");
 

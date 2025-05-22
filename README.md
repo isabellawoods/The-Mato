@@ -8,5 +8,5 @@ Some ideas for this mod were by my friend Gabriel and by Sophie, such as a Honey
 
 Here's a list of the current biomes available in the mod:
 - **Ipe Forest** — A biome covered in pink, purple, red and yellow ipe trees, all with custom wood types;
-- **The Woods** — A biome inspired by my name (JuneTheWoods). It has junium trees and will have lime green flowers;
+- **The Woods** — A biome inspired by my old username (JuneTheWoods). It has junium trees and will have lime green flowers;
 - **Backported 1.18 Biomes** — Most of the new cliff biomes from 1.18 have been backported into this mod.

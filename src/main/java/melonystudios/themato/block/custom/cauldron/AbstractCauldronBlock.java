@@ -21,8 +21,10 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import java.util.Map;
 
+@SuppressWarnings("deprecation")
 public abstract class AbstractCauldronBlock extends Block {
     public static final VoxelShape INTERACTION_SHAPE = box(2, 4, 2, 14, 16, 14);
     public static final VoxelShape SHAPE = VoxelShapes.join(VoxelShapes.block(), VoxelShapes.or(
@@ -45,6 +47,7 @@ public abstract class AbstractCauldronBlock extends Block {
     }
 
     @Override
+    @Nonnull
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hitResult) {
         ItemStack handStack = player.getItemInHand(hand);
         CauldronInteraction interaction = this.interactionMap.get(handStack.getItem());
@@ -52,17 +55,25 @@ public abstract class AbstractCauldronBlock extends Block {
     }
 
     @Override
+    @Nonnull
     public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
         return SHAPE;
     }
 
     @Override
+    @Nonnull
     public VoxelShape getInteractionShape(BlockState state, IBlockReader world, BlockPos pos) {
         return INTERACTION_SHAPE;
     }
 
+    @Override
     public boolean hasAnalogOutputSignal(BlockState state) {
         return true;
+    }
+
+    @Override
+    public boolean isPathfindable(BlockState state, IBlockReader world, BlockPos pos, PathType pathType) {
+        return false;
     }
 
     public abstract boolean isFull(BlockState state);
@@ -70,9 +81,5 @@ public abstract class AbstractCauldronBlock extends Block {
     @Override
     public ItemStack getPickBlock(BlockState state, RayTraceResult target, IBlockReader world, BlockPos pos, PlayerEntity player) {
         return new ItemStack(MTItems.CAULDRON.get());
-    }
-
-    public boolean isPathfindable(BlockState state, IBlockReader world, BlockPos pos, PathType pathType) {
-        return false;
     }
 }

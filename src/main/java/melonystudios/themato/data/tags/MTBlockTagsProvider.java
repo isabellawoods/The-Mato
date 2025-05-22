@@ -30,11 +30,13 @@ public class MTBlockTagsProvider extends BlockTagsProvider {
         this.tag(MTTags.Blocks.CACTI).add(Blocks.CACTUS, MTBlocks.STRIPPED_CACTUS.get());
 
         this.tag(MTTags.Blocks.SNOWY_TREES_SPAWNABLE_ON).addTag(MTTags.Blocks.FARMLAND).add(Blocks.SNOW_BLOCK);
-        this.tag(MTTags.Blocks.POWDER_SNOW_REPLACEABLES).add(Blocks.SNOW_BLOCK, Blocks.DIRT);
-        this.tag(MTTags.Blocks.USES_POST_CAC_CULLING).add(MTBlocks.POWDER_SNOW.get());
+        this.tag(MTTags.Blocks.POWDER_SNOW_CAN_REPLACE).add(Blocks.SNOW_BLOCK, Blocks.DIRT);
+        this.tag(MTTags.Blocks.USES_UPDATED_CULLING).add(MTBlocks.POWDER_SNOW.get());
 
         // Melony Tags
         this.tag(MTTags.Blocks.FARMLAND).add(Blocks.FARMLAND);
+        this.tag(MTTags.Blocks.USES_CALCITE_SOUNDS).add(MTBlocks.CALCITE.get());
+        this.tag(MTTags.Blocks.USES_POWDER_SNOW_SOUNDS).add(MTBlocks.POWDER_SNOW.get());
 
         // Forge Tags
         this.tag(Tags.Blocks.STONE).add(MTBlocks.CALCITE.get());
@@ -57,6 +59,7 @@ public class MTBlockTagsProvider extends BlockTagsProvider {
 
         // Miscellaneous
         this.tag(BlockTags.BASE_STONE_OVERWORLD).add(MTBlocks.CALCITE.get());
+        this.tag(MTTags.Blocks.CAULDRONS).add(Blocks.CAULDRON, MTBlocks.CAULDRON.get(), MTBlocks.WATER_CAULDRON.get(), MTBlocks.LAVA_CAULDRON.get(), MTBlocks.MILK_CAULDRON.get(), MTBlocks.POWDER_SNOW_CAULDRON.get());
         this.tag(BlockTags.ENDERMAN_HOLDABLE).add(MTBlocks.STRIPPED_CACTUS.get());
         this.tag(BlockTags.FLOWER_POTS).add(MTBlocks.POTTED_PINK_IPE_SAPLING.get(), MTBlocks.POTTED_PURPLE_IPE_SAPLING.get(), MTBlocks.POTTED_RED_IPE_SAPLING.get(), MTBlocks.POTTED_YELLOW_IPE_SAPLING.get(), MTBlocks.POTTED_JUNIUM_SAPLING.get(), MTBlocks.POTTED_ROSE.get(), MTBlocks.POTTED_CYAN_ROSE.get(), MTBlocks.POTTED_PAEONIA.get());
         this.tag(MTTags.Blocks.TERRACOTTA).add(Blocks.TERRACOTTA, Blocks.WHITE_TERRACOTTA, Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.GRAY_TERRACOTTA, Blocks.BLACK_TERRACOTTA, Blocks.BROWN_TERRACOTTA, Blocks.RED_TERRACOTTA, Blocks.ORANGE_TERRACOTTA,

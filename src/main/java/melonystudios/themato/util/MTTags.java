@@ -20,15 +20,18 @@ public class MTTags {
         public static final ITag.INamedTag<Block> CACTI = theMato("cacti");
 
         public static final ITag.INamedTag<Block> SNOWY_TREES_SPAWNABLE_ON = theMato("snowy_trees_spawnable_on");
-        public static final ITag.INamedTag<Block> POWDER_SNOW_REPLACEABLES = theMato("powder_snow_replaceables");
-        public static final ITag.INamedTag<Block> USES_POST_CAC_CULLING = theMato("uses_post_cac_culling");
+        public static final ITag.INamedTag<Block> POWDER_SNOW_CAN_REPLACE = theMato("powder_snow_can_replace");
+        public static final ITag.INamedTag<Block> USES_UPDATED_CULLING = theMato("uses_updated_culling");
 
         // Melony Tags
         public static final ITag.INamedTag<Block> FARMLAND = melony("farmland");
+        public static final ITag.INamedTag<Block> USES_CALCITE_SOUNDS = melony("uses_sounds/calcite");
+        public static final ITag.INamedTag<Block> USES_POWDER_SNOW_SOUNDS = melony("uses_sounds/powder_snow");
 
         // Minecraft Tags
         public static final ITag.INamedTag<Block> OVERWORLD_CARVER_REPLACEABLES = minecraft("overworld_carver_replaceables");
         public static final ITag.INamedTag<Block> TERRACOTTA = minecraft("terracotta");
+        public static final ITag.INamedTag<Block> CAULDRONS = minecraft("cauldrons");
 
         public static ITag.INamedTag<Block> theMato(String name) {
             return BlockTags.bind(MTUtils.theMato(name).toString());
@@ -53,10 +56,10 @@ public class MTTags {
         public static final ITag.INamedTag<Item> CACTI = theMato("cacti");
 
         public static final ITag.INamedTag<Item> POWDER_SNOW_PROOF_SHOES = theMato("powder_snow_proof_shoes");
-        public static final ITag.INamedTag<Item> PROTECTS_AGAINST_POWDER_SNOW = theMato("protects_against_powder_snow");
 
         // Minecraft Tags
         public static final ITag.INamedTag<Item> TERRACOTTA = minecraft("terracotta");
+        public static final ITag.INamedTag<Item> FREEZE_IMMUNE_WEARABLES = minecraft("freeze_immune_wearables");
 
         public static ITag.INamedTag<Item> theMato(String name) {
             return ItemTags.bind(MTUtils.theMato(name).toString());
@@ -68,20 +71,20 @@ public class MTTags {
     }
 
     public static class Entities {
-        // The Mato's Tags
-        public static final ITag.INamedTag<EntityType<?>> POWDER_SNOW_WALKABLE_MOBS = theMato("powder_snow_walkable_mobs");
-        public static final ITag.INamedTag<EntityType<?>> FREEZE_IMMUNE_ENTITY_TYPES = theMato("freeze_immune_entity_types");
-        public static final ITag.INamedTag<EntityType<?>> EXTRA_DAMAGE_FROM_FREEZING = theMato("extra_damage_from_freezing");
-
         // Melony Tags
         public static final ITag.INamedTag<EntityType<?>> CAN_SPAWN_ON_LEAVES = melony("can_spawn_on_leaves");
 
-        public static ITag.INamedTag<EntityType<?>> theMato(String name) {
-            return EntityTypeTags.bind(MTUtils.theMato(name).toString());
-        }
+        // Minecraft Tags
+        public static final ITag.INamedTag<EntityType<?>> FREEZE_HURTS_EXTRA_TYPES = minecraft("freeze_hurts_extra_types");
+        public static final ITag.INamedTag<EntityType<?>> FREEZE_IMMUNE_ENTITY_TYPES = minecraft("freeze_immune_entity_types");
+        public static final ITag.INamedTag<EntityType<?>> POWDER_SNOW_WALKABLE_MOBS = minecraft("powder_snow_walkable_mobs");
 
         public static ITag.INamedTag<EntityType<?>> melony(String name) {
             return EntityTypeTags.bind(new ResourceLocation("melony", name).toString());
+        }
+
+        public static ITag.INamedTag<EntityType<?>> minecraft(String name) {
+            return EntityTypeTags.bind(new ResourceLocation(name).toString());
         }
     }
 }

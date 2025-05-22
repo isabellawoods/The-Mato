@@ -6,8 +6,8 @@ import melonystudios.themato.block.custom.cauldron.LayeredCauldronBlock;
 import melonystudios.themato.blockentity.custom.DyedWaterCauldronBlockEntity;
 import melonystudios.themato.item.MTItems;
 import melonystudios.themato.sound.MTSounds;
-import melonystudios.themato.util.CavesAndCliffsUtils;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import melonystudios.themato.util.MTUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -20,6 +20,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants;
 
 import java.util.Map;
 import java.util.function.Predicate;
@@ -36,23 +37,24 @@ public interface CauldronInteraction {
     Map<Item, CauldronInteraction> POWDER_SNOW = newInteractionMap();
 
     // Fill with content
-    CauldronInteraction FILL_WATER = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.WATER_CAULDRON.get().defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), SoundEvents.BUCKET_EMPTY);
+    CauldronInteraction FILL_WATER = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.WATER_CAULDRON.get().defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), SoundEvents.BUCKET_EMPTY, state1 -> state1.is(MTBlocks.CAULDRON.get()));
     CauldronInteraction FILL_DYED_WATER = (state, world, pos, player, hand, stack) -> {
         DyedWaterCauldronBlock dyedWaterCauldron = (DyedWaterCauldronBlock) MTBlocks.DYED_WATER_CAULDRON.get();
         dyedWaterCauldron.createTileEntity(state, world);
-        if (stack.getTag() != null && stack.getTag().contains("dyed_water_color", 99)) {
+        if (stack.getTag() != null && stack.getTag().contains("dyed_water_color", Constants.NBT.TAG_ANY_NUMERIC)) {
             dyedWaterCauldron.setDyedWaterColor(stack.getTag().getInt("dyed_water_color"));
         } else {
             dyedWaterCauldron.setDyedWaterColor(0x3F76E4);
         }
-        return emptyBucket(world, pos, player, hand, stack, dyedWaterCauldron.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), SoundEvents.BUCKET_EMPTY);
+        return emptyBucket(world, pos, player, hand, stack, dyedWaterCauldron.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), SoundEvents.BUCKET_EMPTY, state1 -> state1.is(MTBlocks.CAULDRON.get()));
     };
-    CauldronInteraction FILL_LAVA = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.LAVA_CAULDRON.get().defaultBlockState(), SoundEvents.BUCKET_EMPTY_LAVA);
-    CauldronInteraction FILL_POWDER_SNOW = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.POWDER_SNOW_CAULDRON.get().defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), MTSounds.POWDER_SNOW_BUCKET_EMPTY.get());
-    CauldronInteraction FILL_MILK = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.MILK_CAULDRON.get().defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), SoundEvents.BUCKET_EMPTY);
+    CauldronInteraction FILL_LAVA = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.LAVA_CAULDRON.get().defaultBlockState(), SoundEvents.BUCKET_EMPTY_LAVA, state1 -> state1.is(MTBlocks.CAULDRON.get()));
+    CauldronInteraction FILL_POWDER_SNOW = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.POWDER_SNOW_CAULDRON.get().defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), MTSounds.POWDER_SNOW_BUCKET_EMPTY.get(),
+            state1 -> state1.is(MTBlocks.CAULDRON.get()));
+    CauldronInteraction FILL_MILK = (state, world, pos, player, hand, stack) -> emptyBucket(world, pos, player, hand, stack, MTBlocks.MILK_CAULDRON.get().defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3), SoundEvents.BUCKET_EMPTY, state1 -> state1.is(MTBlocks.CAULDRON.get()));
 
     static Object2ObjectOpenHashMap<Item, CauldronInteraction> newInteractionMap() {
-        return Util.make(new Object2ObjectOpenHashMap<>(), (interactionMap) -> interactionMap.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResultType.PASS));
+        return Util.make(new Object2ObjectOpenHashMap<>(), interactionMap -> interactionMap.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResultType.PASS));
     }
 
     ActionResultType interact(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack);
@@ -65,7 +67,7 @@ public interface CauldronInteraction {
             } else {
                 if (!world.isClientSide) {
                     Item item = stack.getItem();
-                    player.setItemInHand(hand, CavesAndCliffsUtils.createFilledResult(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
+                    player.setItemInHand(hand, MTUtils.createFilledResult(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
                     player.awardStat(Stats.USE_CAULDRON);
                     player.awardStat(Stats.ITEM_USED.get(item));
                     world.setBlockAndUpdate(pos, MTBlocks.WATER_CAULDRON.get().defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 1));
@@ -78,11 +80,11 @@ public interface CauldronInteraction {
         addDefaultInteractions(EMPTY);
 
         // Water
-        WATER.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(Items.WATER_BUCKET), (state1) -> state1.getValue(LayeredCauldronBlock.LEVEL) == 3, SoundEvents.BUCKET_FILL));
+        WATER.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(Items.WATER_BUCKET), state1 -> state1.getValue(LayeredCauldronBlock.LEVEL) == 3, SoundEvents.BUCKET_FILL));
         WATER.put(Items.GLASS_BOTTLE, (state, world, pos, player, hand, stack) -> {
             if (!world.isClientSide) {
                 Item item = stack.getItem();
-                player.setItemInHand(hand, CavesAndCliffsUtils.createFilledResult(stack, player, PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
+                player.setItemInHand(hand, MTUtils.createFilledResult(stack, player, PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
                 player.awardStat(Stats.USE_CAULDRON);
                 player.awardStat(Stats.ITEM_USED.get(item));
                 LayeredCauldronBlock.lowerFillLevel(state, world, pos);
@@ -93,7 +95,7 @@ public interface CauldronInteraction {
         WATER.put(Items.POTION, (state, world, pos, player, hand, stack) -> {
             if (state.getValue(LayeredCauldronBlock.LEVEL) != 3 && PotionUtils.getPotion(stack) == Potions.WATER) {
                 if (!world.isClientSide) {
-                    player.setItemInHand(hand, CavesAndCliffsUtils.createFilledResult(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
+                    player.setItemInHand(hand, MTUtils.createFilledResult(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
                     player.awardStat(Stats.USE_CAULDRON);
                     player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
                     world.setBlockAndUpdate(pos, state.cycle(LayeredCauldronBlock.LEVEL));
@@ -151,20 +153,20 @@ public interface CauldronInteraction {
                 DyedWaterCauldronBlockEntity cauldronBlockEntity = (DyedWaterCauldronBlockEntity) blockEntity;
                 dyedBucketStack.getOrCreateTag().putInt("dyed_water_color", cauldronBlockEntity.getWaterColor());
             }
-            return fillBucket(state, world, pos, player, hand, stack, dyedBucketStack, (state1) -> true, SoundEvents.BUCKET_FILL);
+            return fillBucket(state, world, pos, player, hand, stack, dyedBucketStack, state1 -> true, SoundEvents.BUCKET_FILL);
         });
         addDefaultInteractions(DYED_WATER);
 
         // Lava
-        LAVA.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(Items.LAVA_BUCKET), (state1) -> true, SoundEvents.BUCKET_FILL_LAVA));
+        LAVA.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(Items.LAVA_BUCKET), state1 -> true, SoundEvents.BUCKET_FILL_LAVA));
         addDefaultInteractions(LAVA);
 
         // Powder Snow
-        POWDER_SNOW.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(MTItems.POWDER_SNOW_BUCKET.get()), (state1) -> state1.getValue(LayeredCauldronBlock.LEVEL) == 3, MTSounds.POWDER_SNOW_BUCKET_EMPTY.get()));
+        POWDER_SNOW.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(MTItems.POWDER_SNOW_BUCKET.get()), state1 -> state1.getValue(LayeredCauldronBlock.LEVEL) == 3, MTSounds.POWDER_SNOW_BUCKET_EMPTY.get()));
         addDefaultInteractions(POWDER_SNOW);
 
         // Milk
-        MILK.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(Items.MILK_BUCKET), (state1) -> state1.getValue(LayeredCauldronBlock.LEVEL) == 3, SoundEvents.BUCKET_FILL));
+        MILK.put(Items.BUCKET, (state, world, pos, player, hand, stack) -> fillBucket(state, world, pos, player, hand, stack, new ItemStack(Items.MILK_BUCKET), state1 -> state1.getValue(LayeredCauldronBlock.LEVEL) == 3, SoundEvents.BUCKET_FILL));
         addDefaultInteractions(MILK);
     }
 
@@ -181,7 +183,7 @@ public interface CauldronInteraction {
             return ActionResultType.PASS;
         } else {
             if (!world.isClientSide) {
-                player.setItemInHand(hand, CavesAndCliffsUtils.createFilledResult(filledStack, player, emptyStack));
+                player.setItemInHand(hand, MTUtils.createFilledResult(filledStack, player, emptyStack));
                 player.awardStat(Stats.USE_CAULDRON);
                 player.awardStat(Stats.ITEM_USED.get(filledStack.getItem()));
                 world.setBlockAndUpdate(pos, MTBlocks.CAULDRON.get().defaultBlockState());
@@ -191,13 +193,18 @@ public interface CauldronInteraction {
         }
     }
 
-    static ActionResultType emptyBucket(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, BlockState state, SoundEvent emptySound) {
-        if (!world.isClientSide) {
-            player.setItemInHand(hand, CavesAndCliffsUtils.createFilledResult(stack, player, new ItemStack(Items.BUCKET)));
-            player.awardStat(Stats.FILL_CAULDRON);
-            player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
-            world.setBlockAndUpdate(pos, state);
-            world.playSound(null, pos, emptySound, SoundCategory.BLOCKS, 1, 1);
+    // sometimes, trying to do something seemingly simple in code is way harder than it seems ~isa 22-5-25
+    static ActionResultType emptyBucket(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, BlockState state, SoundEvent emptySound, Predicate<BlockState> statePredicate) {
+        if (statePredicate.test(state)) {
+            return ActionResultType.PASS;
+        } else {
+            if (!world.isClientSide) {
+                player.setItemInHand(hand, MTUtils.createFilledResult(stack, player, stack.getContainerItem()));
+                player.awardStat(Stats.FILL_CAULDRON);
+                player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
+                world.setBlockAndUpdate(pos, state);
+                world.playSound(null, pos, emptySound, SoundCategory.BLOCKS, 1, 1);
+            }
         }
         return ActionResultType.sidedSuccess(world.isClientSide);
     }

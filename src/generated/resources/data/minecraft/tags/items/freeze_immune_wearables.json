@@ -7,15 +7,15 @@
     "minecraft:leather_boots",
     "minecraft:leather_horse_armor",
     {
-      "id": "variants:rabbit_hide_sweatchest",
+      "id": "variants:rabbit_hide_tunic",
       "required": false
     },
     {
-      "id": "variants:phantom_membrane_sweatchest",
+      "id": "variants:phantom_membrane_tunic",
       "required": false
     },
     {
-      "id": "variants:wool_sweatchest",
+      "id": "variants:wool_sweater",
       "required": false
     }
   ]

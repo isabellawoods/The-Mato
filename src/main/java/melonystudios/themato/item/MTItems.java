@@ -6,6 +6,7 @@ import melonystudios.themato.item.custom.BlockBucketItem;
 import melonystudios.themato.item.custom.DyedWaterBucketItem;
 import melonystudios.themato.item.custom.LiquidCactusBucketItem;
 import melonystudios.themato.item.custom.MTFoods;
+import melonystudios.themato.sound.MTSounds;
 import melonystudios.themato.util.MTTab;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -118,7 +119,7 @@ public class MTItems {
     public static final RegistryObject<Item> PAEONIA = ITEMS.register("paeonia", () -> new BlockItem(MTBlocks.PAEONIA.get(), new Item.Properties().tab(MTTab.TAB)));
 
     // Actual Items
-    public static final RegistryObject<Item> POWDER_SNOW_BUCKET = ITEMS.register("powder_snow_bucket", () -> new BlockBucketItem(MTBlocks.POWDER_SNOW.get(), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET).tab(MTTab.TAB)));
+    public static final RegistryObject<Item> POWDER_SNOW_BUCKET = ITEMS.register("powder_snow_bucket", () -> new BlockBucketItem(MTSounds.POWDER_SNOW_BUCKET_EMPTY, MTBlocks.POWDER_SNOW.get(), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET).tab(MTTab.TAB)));
     public static final RegistryObject<Item> DYED_WATER_BUCKET = ITEMS.register("dyed_water_bucket", () -> new DyedWaterBucketItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET).tab(MTTab.TAB)));
     public static final RegistryObject<Item> LIQUID_CACTUS_BUCKET = ITEMS.register("liquid_cactus_bucket", () -> new LiquidCactusBucketItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET).tab(MTTab.TAB)));
     public static final RegistryObject<Item> CACTUS_CANDY = ITEMS.register("cactus_candy", () -> new Item(new Item.Properties().food(MTFoods.CACTUS_CANDY).tab(MTTab.TAB)));

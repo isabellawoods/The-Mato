@@ -20,10 +20,10 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.16.5-v0.3.4'
+version = minecraft_version + "-v" + mod_version
 // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-group = 'melonystudios.themato'
-archivesBaseName = 'TheMato'
+group = mod_group_id
+archivesBaseName = mod_name_no_spaces
 
 // Mojang ships Java 8 to end users, so your mod should target Java 8.
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
@@ -41,15 +41,45 @@ minecraft {
 
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'official', version: '1.16.5'
-    // A Srg-named sources jar is made by default. Uncomment this to disable.
+    mappings channel: mappings_channel, version: minecraft_version
+    // A SRG named sources jar is made by default. Uncomment this to disable.
     // makeObfSourceJar = false
 
+    // This property enables access transformers for use in development, which will be applied to the Minecraft artifact.
+    // The access transformer file can be anywhere in the project. However, it must be at "META-INF/accesstransformer.cfg" in the final mod jar to be loaded by Forge.
+    // This default location is a best practice to automatically put the file in the right place in the final jar.
+    // See https://docs.minecraftforge.net/en/latest/advanced/accesstransformers/ for more information.
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
     runs {
+        // Applies to all run configurations below.
+        configureEach {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a user development environment.
+            // The markers can be added/remove as needed separated by commas.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            // Recommended logging level for the console.
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            property 'forge.logging.console.level', 'debug'
+
+            // Disables the ref map for mixins.
+            property 'mixin.env.disableRefMap', 'true'
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
         client {
             // Copied from Tinker's Construct repository.
             if (project.hasProperty('mc_uuid')) {
@@ -61,88 +91,26 @@ minecraft {
                 // Note: This is not your email, even if you have a Mojang account.
                 args '--username', project.getProperty('mc_username')
             }
-            if (project.hasProperty('mc_accessToken')) {
-                // Your access token, you can find it in your '.minecraft/launcher_profiles.json' file.
-                args '--accessToken', project.getProperty('mc_accessToken')
-            }
 
-            property 'mixin.env.disableRefMap', 'true'
+            args '--version', 'melony-studios-dev/themato'
+
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            workingDirectory project.file('run')
             property "mixin.debug.export", "true"
-
-            // Recommended logging data for a user development environment.
-            // The markers can be changed as needed.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console.
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                themato {
-                    source sourceSets.main
-                }
-            }
         }
 
         server {
-            property 'mixin.env.disableRefMap', 'true'
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a user development environment.
-            // The markers can be changed as needed.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console.
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                themato {
-                    source sourceSets.main
-                }
-            }
+            args '--nogui'
         }
 
         data {
-            property 'mixin.env.disableRefMap', 'true'
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a user development environment.
-            // The markers can be changed as needed.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console.
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            // Specify the mod id for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'themato', '--all','--existing', file('src/main/resources').toString(),'--existing', file('src/generated/resources').toString(), '--output', file('src/generated/resources/')
-
-            mods {
-                themato {
-                    source sourceSets.main
-                }
-            }
+            // Specify the mod id for data generation, where to output the resulting resources, and where to look for existing resources.
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
 
 mixin {
-    add sourceSets.main, "themato.refmap.json"
+    add sourceSets.main, mod_id + ".refmap.json"
 }
 
 // Include resources generated by data generators.
@@ -154,17 +122,18 @@ dependencies {
     // Specify the Minecraft version to use.
     // If this is any group other than 'net.minecraft', it is assumed that the dep is a Forge Gradle 'patcher' dependency, and its patches will be applied.
     // The user development artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+    // If the group id is "net.minecraft" and the artifact id is "client", "server" or "joined", then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Compile against the Just Enough Items API but do not include it at runtime.
-    compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
     // At runtime, use the full Just Enough Items jar.
-    runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
     // Annotation Processors
-    annotationProcessor 'org.spongepowered:mixin:0.8:processor'
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    // You may put jars on which you depend on in ./libs or you may define them like so:
+    // You may put jars on which you depend on in ./libs, or you may define them like so:
     // compile "some.group:artifact:version:classifier"
     // compile "some.group:artifact:version"
 
@@ -203,15 +172,15 @@ repositories {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "The Mato",
-            "Specification-Vendor": "isabellawoods",
-            // We are version one of ourselves.
+            "Specification-Title": mod_name,
+            "Specification-Vendor": mod_authors,
+            // We are version 1 of ourselves.
             "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"isabellawoods",
+            "Implementation-Vendor": mod_authors,
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "MixinConfigs": "themato.mixins.json"
+            "MixinConfigs": mod_id + ".mixins.json"
         ])
     }
 }
