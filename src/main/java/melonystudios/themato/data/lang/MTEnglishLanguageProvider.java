@@ -135,6 +135,10 @@ public class MTEnglishLanguageProvider extends LanguageProvider {
         addItem(MTItems.LIQUID_CACTUS_BUCKET, "Liquid Cactus Bucket");
         addItem(MTItems.DYED_WATER_BUCKET, "Dyed Water Bucket");
         addItem(MTItems.CACTUS_CANDY, "Cactus Candy");
+        addItem(MTItems.MUSIC_DISC_ADVENTURE_AWAITS, "Music Disc");
+        add("item.themato.music_disc_adventure_awaits.desc", "Laudividni - Adventure Awaits");
+        addItem(MTItems.MUSIC_DISC_WELCOME_TO_THE_MATO, "Music Disc");
+        add("item.themato.music_disc_welcome_to_the_mato.desc", "Marco Brasil Filho - Welcome to the Mato");
 
         addEffect(MTEffects.FREEZING, "Freezing");
 

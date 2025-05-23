@@ -8,10 +8,7 @@ import melonystudios.themato.item.custom.LiquidCactusBucketItem;
 import melonystudios.themato.item.custom.MTFoods;
 import melonystudios.themato.sound.MTSounds;
 import melonystudios.themato.util.MTTab;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.SignItem;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -123,4 +120,6 @@ public class MTItems {
     public static final RegistryObject<Item> DYED_WATER_BUCKET = ITEMS.register("dyed_water_bucket", () -> new DyedWaterBucketItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET).tab(MTTab.TAB)));
     public static final RegistryObject<Item> LIQUID_CACTUS_BUCKET = ITEMS.register("liquid_cactus_bucket", () -> new LiquidCactusBucketItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET).tab(MTTab.TAB)));
     public static final RegistryObject<Item> CACTUS_CANDY = ITEMS.register("cactus_candy", () -> new Item(new Item.Properties().food(MTFoods.CACTUS_CANDY).tab(MTTab.TAB)));
+    public static final RegistryObject<Item> MUSIC_DISC_ADVENTURE_AWAITS = ITEMS.register("music_disc_adventure_awaits", () -> new MusicDiscItem(8, MTSounds.MUSIC_DISC_ADVENTURE_AWAITS, new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).tab(MTTab.TAB)));
+    public static final RegistryObject<Item> MUSIC_DISC_WELCOME_TO_THE_MATO = ITEMS.register("music_disc_welcome_to_the_mato", () -> new MusicDiscItem(9, MTSounds.MUSIC_DISC_WELCOME_TO_THE_MATO, new Item.Properties().stacksTo(1).rarity(Rarity.RARE).tab(MTTab.TAB)));
 }

@@ -22,6 +22,10 @@ public class MTSounds {
     public static final RegistryObject<SoundEvent> FOREST_MUSIC = SOUNDS.register("music.overworld.forest", () -> new SoundEvent(MTUtils.theMato("music.overworld.forest")));
     public static final RegistryObject<SoundEvent> SWAMP_MUSIC = SOUNDS.register("music.overworld.swamp", () -> new SoundEvent(MTUtils.theMato("music.overworld.swamp")));
 
+    // Music Discs
+    public static final RegistryObject<SoundEvent> MUSIC_DISC_ADVENTURE_AWAITS = SOUNDS.register("music_disc.adventure_awaits", () -> new SoundEvent(MTUtils.theMato("music_disc.adventure_awaits")));
+    public static final RegistryObject<SoundEvent> MUSIC_DISC_WELCOME_TO_THE_MATO = SOUNDS.register("music_disc.welcome_to_the_mato", () -> new SoundEvent(MTUtils.theMato("music_disc.welcome_to_the_mato")));
+
     // Blocks
     public static final RegistryObject<SoundEvent> POWDER_SNOW_BREAK = SOUNDS.register("block.powder_snow.break", () -> new SoundEvent(MTUtils.theMato("block.powder_snow.break")));
     public static final RegistryObject<SoundEvent> POWDER_SNOW_FALL = SOUNDS.register("block.powder_snow.fall", () -> new SoundEvent(MTUtils.theMato("block.powder_snow.fall")));

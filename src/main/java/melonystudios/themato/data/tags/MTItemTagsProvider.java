@@ -63,5 +63,6 @@ public class MTItemTagsProvider extends ItemTagsProvider {
                         Items.YELLOW_TERRACOTTA, Items.LIME_TERRACOTTA, Items.GREEN_TERRACOTTA, Items.CYAN_TERRACOTTA, Items.LIGHT_BLUE_TERRACOTTA, Items.BLUE_TERRACOTTA, Items.PURPLE_TERRACOTTA, Items.MAGENTA_TERRACOTTA, Items.PINK_TERRACOTTA)
                 .addOptional(backMath("devil_terracotta"));
         this.tag(ItemTags.SMALL_FLOWERS).add(MTItems.ROSE.get(), MTItems.CYAN_ROSE.get(), MTItems.PAEONIA.get());
+        this.tag(ItemTags.MUSIC_DISCS).add(MTItems.MUSIC_DISC_ADVENTURE_AWAITS.get(), MTItems.MUSIC_DISC_WELCOME_TO_THE_MATO.get());
     }
 }

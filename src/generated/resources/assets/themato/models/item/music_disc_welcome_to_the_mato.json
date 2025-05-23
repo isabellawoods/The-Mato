@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "themato:item/music_disc_welcome_to_the_mato"
+  }
+}

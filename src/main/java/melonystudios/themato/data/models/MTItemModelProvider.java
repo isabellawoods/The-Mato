@@ -113,6 +113,8 @@ public class MTItemModelProvider extends ItemModelProvider {
         getBuilder("dyed_water_bucket").parent(generated).texture("layer0", modLoc("item/dyed_water_bucket_overlay")).texture("layer1", modLoc("item/dyed_water_bucket"));
         standard(generated, "liquid_cactus_bucket");
         standard(generated, "cactus_candy");
+        standard(generated, "music_disc_adventure_awaits");
+        standard(generated, "music_disc_welcome_to_the_mato");
 
         blockItem(generated, "pink_ipe_sapling");
         blockItem(generated, "purple_ipe_sapling");

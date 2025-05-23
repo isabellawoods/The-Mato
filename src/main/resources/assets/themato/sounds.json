@@ -405,6 +405,22 @@
       }
     ]
   },
+  "music_disc.adventure_awaits": {
+    "sounds": [
+      {
+        "name": "themato:music_disc/adventure_awaits",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.welcome_to_the_mato": {
+    "sounds": [
+      {
+        "name": "themato:music_disc/welcome_to_the_mato",
+        "stream": true
+      }
+    ]
+  },
   "block.powder_snow.break": {
     "sounds": [
       "themato:block/powder_snow/break1",
