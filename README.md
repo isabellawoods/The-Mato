@@ -2,7 +2,7 @@
 
 # <center> - The Mato - </center>
 
-The Mato is a mod that adds new biomes, blocks, items and mobs related to either Brazil or other places, such as old *Minecraft* features.
+**The Mato** is a mod that adds new biomes, blocks, items and mobs related to either Brazil or other places, such as old *Minecraft* features.
 
 Some ideas for this mod were by my friend Gabriel and by Sophie, such as a Honey Forest.
 

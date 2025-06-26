@@ -1,8 +1,36 @@
 {
-  "music.overworld.meadow": {
+  "music.overworld.badlands": {
     "sounds": [
       {
-        "name": "music/game/hal1",
+        "name": "themato:music/game/trails_and_tales/crescent_dunes",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/trails_and_tales/echo_in_the_wind",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/tricky_trials/featherfall",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance1",
         "stream": true
       },
       {
@@ -10,11 +38,50 @@
         "stream": true
       },
       {
+        "name": "music/game/piano3",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/one_more_day",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/nuance2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano2",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.bamboo_jungle": {
+    "sounds": [
+      {
+        "name": "themato:music/game/trails_and_tales/bromeliad",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true
+      },
+      {
         "name": "music/game/hal3",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/nuance1",
         "stream": true
       },
       {
@@ -23,236 +90,11 @@
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/caves_and_cliffs/one_more_day",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
-      }
-    ]
-  },
-  "music.overworld.frozen_peaks": {
-    "sounds": [
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
         "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano1",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano2",
         "stream": true
       },
       {
         "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/stand_tall",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
-      },
-      {
-        "name": "themato:music/game/drop_2_2025/lilypad",
-        "stream": true,
-        "volume": 0.4
-      }
-    ]
-  },
-  "music.overworld.grove": {
-    "sounds": [
-      {
-        "name": "music/game/calm1",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm2",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm3",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/comforting_memories",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "themato:music/game/tricky_trials/eld_unknown",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "themato:music/game/tricky_trials/endless",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/infinite_amethyst",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/nuance1",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/drop_2_2025/lilypad",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
-      },
-      {
-        "name": "music/game/nuance2",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/tricky_trials/pokopoko",
-        "stream": true,
-        "volume": 0.8
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/wending",
-        "stream": true,
-        "volume": 0.4
-      }
-    ]
-  },
-  "music.overworld.snowy_slopes": {
-    "sounds": [
-      {
-        "name": "themato:music/game/caves_and_cliffs/an_ordinary_day",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/tricky_trials/pokopoko",
-        "stream": true,
-        "volume": 0.8
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/one_more_day",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/stand_tall",
-        "stream": true,
-        "volume": 0.4
-      }
-    ]
-  },
-  "music.overworld.stony_peaks": {
-    "sounds": [
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/tricky_trials/eld_unknown",
-        "volume": 0.4,
-        "weight": 2
-      },
-      {
-        "name": "themato:music/game/tricky_trials/endless",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano1",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano2",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/stand_tall",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/wending",
-        "stream": true,
-        "volume": 0.4
-      }
-    ]
-  },
-  "music.overworld.jagged_peaks": {
-    "sounds": [
-      {
-        "name": "themato:music/game/tricky_trials/eld_unknown",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "themato:music/game/tricky_trials/endless",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "themato:music/game/caves_and_cliffs/floating_dream",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/nuance1",
         "stream": true
       },
       {
@@ -260,38 +102,112 @@
         "stream": true
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/hal1",
         "stream": true
       },
       {
         "name": "music/game/piano2",
         "stream": true
+      }
+    ]
+  },
+  "music.overworld.desert": {
+    "sounds": [
+      {
+        "name": "themato:music/game/trails_and_tales/crescent_dunes",
+        "stream": true,
+        "volume": 0.4
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/hal4",
         "stream": true
       },
       {
-        "name": "themato:music/game/tricky_trials/pokopoko",
+        "name": "themato:music/game/chase_the_skies/fireflies",
         "stream": true,
-        "volume": 0.8
+        "volume": 0.4,
+        "weight": 2
       },
       {
-        "name": "themato:music/game/caves_and_cliffs/stand_tall",
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/one_more_day",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/caves_and_cliffs/wending",
+        "name": "music/game/nuance2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.flower_forest": {
+    "sounds": [
+      {
+        "name": "themato:music/game/trails_and_tales/bromeliad",
         "stream": true,
         "volume": 0.4
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/trails_and_tales/echo_in_the_wind",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/tricky_trials/featherfall",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance1",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/left_to_bloom",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true
       }
     ]
   },
   "music.overworld.forest": {
     "sounds": [
       {
-        "name": "themato:music/game/drop_2_2025/broken_clocks",
+        "name": "themato:music/game/chase_the_skies/broken_clocks",
         "stream": true,
         "volume": 0.4,
         "weight": 2
@@ -381,6 +297,499 @@
       },
       {
         "name": "themato:music/game/trails_and_tales/bromeliad",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.overworld.frozen_peaks": {
+    "sounds": [
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano2",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano3",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/stand_tall",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "themato:music/game/chase_the_skies/lilypad",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.overworld.grove": {
+    "sounds": [
+      {
+        "name": "music/game/calm1",
+        "stream": true
+      },
+      {
+        "name": "music/game/calm2",
+        "stream": true
+      },
+      {
+        "name": "music/game/calm3",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/comforting_memories",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/tricky_trials/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/tricky_trials/endless",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/infinite_amethyst",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/nuance1",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/chase_the_skies/lilypad",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "music/game/nuance2",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/tricky_trials/pokopoko",
+        "stream": true,
+        "volume": 0.8
+      },
+      {
+        "name": "music/game/piano3",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/wending",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.overworld.jagged_peaks": {
+    "sounds": [
+      {
+        "name": "themato:music/game/tricky_trials/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/tricky_trials/endless",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/floating_dream",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance1",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance2",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano2",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano3",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/tricky_trials/pokopoko",
+        "stream": true,
+        "volume": 0.8
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/stand_tall",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/wending",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.overworld.jungle": {
+    "sounds": [
+      {
+        "name": "themato:music/game/trails_and_tales/bromeliad",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 3
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance1",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/left_to_bloom",
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano2",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.meadow": {
+    "sounds": [
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/left_to_bloom",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/one_more_day",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      }
+    ]
+  },
+  "music.overworld.old_growth_taiga": {
+    "sounds": [
+      {
+        "name": "music/game/calm2",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/comforting_memories",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 3
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/floating_dream",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 3
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "music/game/nuance1",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/left_to_bloom",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 3
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "music/game/piano3",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "music/game/calm1",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/one_more_day",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 3
+      },
+      {
+        "name": "music/game/nuance2",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "themato:music/game/wild_update/aerie",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/wild_update/firebugs",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/wild_update/labyrinthine",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/calm3",
+        "stream": true,
+        "weight": 3
+      },
+      {
+        "name": "music/game/piano2",
+        "stream": true,
+        "weight": 3
+      }
+    ]
+  },
+  "music.overworld.snowy_slopes": {
+    "sounds": [
+      {
+        "name": "themato:music/game/caves_and_cliffs/an_ordinary_day",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/tricky_trials/pokopoko",
+        "stream": true,
+        "volume": 0.8
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/one_more_day",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/stand_tall",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.overworld.sparse_jungle": {
+    "sounds": [
+      {
+        "name": "themato:music/game/trails_and_tales/bromeliad",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance1",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/left_to_bloom",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nuance2",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano2",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.stony_peaks": {
+    "sounds": [
+      {
+        "name": "music/game/hal1",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal2",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/tricky_trials/eld_unknown",
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "themato:music/game/tricky_trials/endless",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/hal3",
+        "stream": true
+      },
+      {
+        "name": "music/game/hal4",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano1",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano2",
+        "stream": true
+      },
+      {
+        "name": "music/game/piano3",
+        "stream": true
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/stand_tall",
+        "stream": true,
+        "volume": 0.4,
+        "weight": 2
+      },
+      {
+        "name": "themato:music/game/caves_and_cliffs/wending",
         "stream": true,
         "volume": 0.4
       }

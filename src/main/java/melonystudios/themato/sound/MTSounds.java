@@ -19,7 +19,14 @@ public class MTSounds {
     public static final RegistryObject<SoundEvent> GROVE_MUSIC = SOUNDS.register("music.overworld.grove", () -> new SoundEvent(MTUtils.theMato("music.overworld.grove")));
 
     // Vanilla Biome Music
+    public static final RegistryObject<SoundEvent> BADLANDS_MUSIC = SOUNDS.register("music.overworld.badlands", () -> new SoundEvent(MTUtils.theMato("music.overworld.badlands")));
+    public static final RegistryObject<SoundEvent> BAMBOO_JUNGLE_MUSIC = SOUNDS.register("music.overworld.bamboo_jungle", () -> new SoundEvent(MTUtils.theMato("music.overworld.bamboo_jungle")));
+    public static final RegistryObject<SoundEvent> DESERT_MUSIC = SOUNDS.register("music.overworld.desert", () -> new SoundEvent(MTUtils.theMato("music.overworld.desert")));
+    public static final RegistryObject<SoundEvent> FLOWER_FOREST_MUSIC = SOUNDS.register("music.overworld.flower_forest", () -> new SoundEvent(MTUtils.theMato("music.overworld.flower_forest")));
     public static final RegistryObject<SoundEvent> FOREST_MUSIC = SOUNDS.register("music.overworld.forest", () -> new SoundEvent(MTUtils.theMato("music.overworld.forest")));
+    public static final RegistryObject<SoundEvent> JUNGLE_MUSIC = SOUNDS.register("music.overworld.jungle", () -> new SoundEvent(MTUtils.theMato("music.overworld.jungle")));
+    public static final RegistryObject<SoundEvent> OLD_GROWTH_TAIGA_MUSIC = SOUNDS.register("music.overworld.old_growth_taiga", () -> new SoundEvent(MTUtils.theMato("music.overworld.old_growth_taiga")));
+    public static final RegistryObject<SoundEvent> SPARSE_JUNGLE_MUSIC = SOUNDS.register("music.overworld.sparse_jungle", () -> new SoundEvent(MTUtils.theMato("music.overworld.sparse_jungle")));
     public static final RegistryObject<SoundEvent> SWAMP_MUSIC = SOUNDS.register("music.overworld.swamp", () -> new SoundEvent(MTUtils.theMato("music.overworld.swamp")));
 
     // Music Discs

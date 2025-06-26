@@ -1,6 +1,8 @@
 {
   "pack": {
-    "description": "Mod data for The Mato.",
+    "description": {
+      "translate": "datapack.themato.desc"
+    },
     "pack_format": 6
   }
 }

@@ -2,27 +2,27 @@
   "music.game": {
     "sounds": [
       {
-        "name": "themato:music/game/drop_2_2025/below_and_above",
+        "name": "themato:music/game/chase_the_skies/below_and_above",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/broken_clocks",
+        "name": "themato:music/game/chase_the_skies/broken_clocks",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/fireflies",
+        "name": "themato:music/game/chase_the_skies/fireflies",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/lilypad",
+        "name": "themato:music/game/chase_the_skies/lilypad",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/os_piano",
+        "name": "themato:music/game/chase_the_skies/os_piano",
         "stream": true,
         "volume": 0.4
       },
@@ -81,27 +81,27 @@
   "music.menu": {
     "sounds": [
       {
-        "name": "themato:music/game/drop_2_2025/below_and_above",
+        "name": "themato:music/game/chase_the_skies/below_and_above",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/broken_clocks",
+        "name": "themato:music/game/chase_the_skies/broken_clocks",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/fireflies",
+        "name": "themato:music/game/chase_the_skies/fireflies",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/lilypad",
+        "name": "themato:music/game/chase_the_skies/lilypad",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "themato:music/game/drop_2_2025/os_piano",
+        "name": "themato:music/game/chase_the_skies/os_piano",
         "stream": true,
         "volume": 0.4
       },

@@ -8,6 +8,7 @@
     "block.MTBlockMixin",
     "block.MTCactusBlockMixin",
     "blockentity.MTAbstractFurnaceTileEntityMixin",
+    "world.MTBiomeMixin",
     "world.MTDefaultBiomeFeaturesMixin",
     "world.MTTreeFeatureMixin",
     "world.MTWorldCarverMixin",

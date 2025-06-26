@@ -138,7 +138,7 @@ public class MTEnglishLanguageProvider extends LanguageProvider {
         addItem(MTItems.MUSIC_DISC_ADVENTURE_AWAITS, "Music Disc");
         add("item.themato.music_disc_adventure_awaits.desc", "Laudividni - Adventure Awaits");
         addItem(MTItems.MUSIC_DISC_WELCOME_TO_THE_MATO, "Music Disc");
-        add("item.themato.music_disc_welcome_to_the_mato.desc", "Marco Brasil Filho - Welcome to the Mato");
+        add("item.themato.music_disc_welcome_to_the_mato.desc", "Marco Brasil Filho, Dj Kevin - Welcome To The Mato");
 
         addEffect(MTEffects.FREEZING, "Freezing");
 
@@ -167,9 +167,13 @@ public class MTEnglishLanguageProvider extends LanguageProvider {
         add("config.themato.remove_water_lakes.tooltip", "Removes water lakes from natural world generation.\nBiomes that add it separately will still generate them.");
         add("config.themato.overworld_river_amount", "Overworld River Amount");
         add("config.themato.overworld_river_amount.tooltip", "What the size of rivers in the Overworld should be. This isn't the width, but the amount of rivers that generate.\nLarger value = less rivers.");
+        add("config.themato.replace_biome_music", "Replace Biome Music");
+        add("config.themato.replace_biome_music.tooltip", "Whether to replace the music in various biomes with their updated sound events.");
 
         add("tooltip.themato.dyed_water_color", "Color: %s");
 
         add("subtitles.entity.player.hurt_freeze", "Player freezes");
+
+        add("datapack.themato.desc", "Mod data for The Mato.");
     }
 }
